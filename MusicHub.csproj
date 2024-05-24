@@ -1,0 +1,574 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{C8265B4F-A5FC-47B3-8DD6-D1AE2D8BF860}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>MusicHub</RootNamespace>
+    <AssemblyName>MusicHub</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="GunuccoSharp, Version=0.2.1.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\GunuccoSharp.0.2.1\lib\netstandard1.4\GunuccoSharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.Win32.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\Microsoft.Win32.Primitives.4.3.0\lib\net46\Microsoft.Win32.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=10.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.10.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.AppContext, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.AppContext.4.3.0\lib\net463\System.AppContext.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.ComponentModel.Composition" />
+    <Reference Include="System.Console, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Console.4.3.0\lib\net46\System.Console.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Core" />
+    <Reference Include="System.Diagnostics.DiagnosticSource, Version=4.0.1.0, Culture=neutral, PublicKeyToken=cc7b13ffcd2ddd51, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.DiagnosticSource.4.3.0\lib\net46\System.Diagnostics.DiagnosticSource.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Diagnostics.Tracing, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Diagnostics.Tracing.4.3.0\lib\net462\System.Diagnostics.Tracing.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Globalization.Calendars, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Globalization.Calendars.4.3.0\lib\net46\System.Globalization.Calendars.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.4.3.0\lib\net462\System.IO.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression, Version=4.1.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Compression.4.3.0\lib\net46\System.IO.Compression.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.Compression.FileSystem" />
+    <Reference Include="System.IO.Compression.ZipFile, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.Compression.ZipFile.4.3.0\lib\net46\System.IO.Compression.ZipFile.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.4.3.0\lib\net46\System.IO.FileSystem.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.IO.FileSystem.Primitives, Version=4.0.2.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.IO.FileSystem.Primitives.4.3.0\lib\net46\System.IO.FileSystem.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.4.3.0\lib\net463\System.Linq.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Linq.Expressions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Linq.Expressions.4.3.0\lib\net463\System.Linq.Expressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Http, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Http.4.3.0\lib\net46\System.Net.Http.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Net.Sockets, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Net.Sockets.4.3.0\lib\net46\System.Net.Sockets.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Numerics" />
+    <Reference Include="System.Reflection, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Reflection.4.3.0\lib\net462\System.Reflection.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.4.3.0\lib\net462\System.Runtime.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Extensions, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.Extensions.4.3.0\lib\net462\System.Runtime.Extensions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.4.3.0\lib\net463\System.Runtime.InteropServices.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.InteropServices.RuntimeInformation, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Runtime.InteropServices.RuntimeInformation.4.3.0\lib\net45\System.Runtime.InteropServices.RuntimeInformation.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Algorithms, Version=4.2.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Algorithms.4.3.0\lib\net463\System.Security.Cryptography.Algorithms.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Encoding, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Encoding.4.3.0\lib\net46\System.Security.Cryptography.Encoding.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.Primitives, Version=4.0.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.Primitives.4.3.0\lib\net46\System.Security.Cryptography.Primitives.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Security.Cryptography.X509Certificates, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Security.Cryptography.X509Certificates.4.3.0\lib\net461\System.Security.Cryptography.X509Certificates.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Text.RegularExpressions, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Text.RegularExpressions.4.3.0\lib\net463\System.Text.RegularExpressions.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="System.Xml.ReaderWriter, Version=4.1.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>packages\System.Xml.ReaderWriter.4.3.0\lib\net46\System.Xml.ReaderWriter.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Acoustic1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acoustic1.Designer.cs">
+      <DependentUpon>Acoustic1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Acoustic2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acoustic2.Designer.cs">
+      <DependentUpon>Acoustic2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Acoustic3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acoustic3.Designer.cs">
+      <DependentUpon>Acoustic3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Acoustic4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acoustic4.Designer.cs">
+      <DependentUpon>Acoustic4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Acoustic5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Acoustic5.Designer.cs">
+      <DependentUpon>Acoustic5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AcousticBuy1.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AcousticBuy1.Designer.cs">
+      <DependentUpon>AcousticBuy1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AcousticBuy2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AcousticBuy2.Designer.cs">
+      <DependentUpon>AcousticBuy2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AcousticBuy3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AcousticBuy3.Designer.cs">
+      <DependentUpon>AcousticBuy3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AcousticBuy4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AcousticBuy4.Designer.cs">
+      <DependentUpon>AcousticBuy4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AcousticBuy5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AcousticBuy5.Designer.cs">
+      <DependentUpon>AcousticBuy5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Capo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Capo.Designer.cs">
+      <DependentUpon>Capo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="CapoBuy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="CapoBuy.Designer.cs">
+      <DependentUpon>CapoBuy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Contact.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Contact.Designer.cs">
+      <DependentUpon>Contact.cs</DependentUpon>
+    </Compile>
+    <Compile Include="DataGridView.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="DataGridView.Designer.cs">
+      <DependentUpon>DataGridView.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Electric.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Electric.Designer.cs">
+      <DependentUpon>Electric.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Electric2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Electric2.Designer.cs">
+      <DependentUpon>Electric2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Electric3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Electric3.Designer.cs">
+      <DependentUpon>Electric3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Electric4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Electric4.Designer.cs">
+      <DependentUpon>Electric4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Electric5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Electric5.Designer.cs">
+      <DependentUpon>Electric5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElectricBuy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectricBuy.Designer.cs">
+      <DependentUpon>ElectricBuy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElectricBuy2.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectricBuy2.Designer.cs">
+      <DependentUpon>ElectricBuy2.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElectricBuy3.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectricBuy3.Designer.cs">
+      <DependentUpon>ElectricBuy3.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElectricBuy4.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectricBuy4.Designer.cs">
+      <DependentUpon>ElectricBuy4.cs</DependentUpon>
+    </Compile>
+    <Compile Include="ElectricBuy5.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ElectricBuy5.Designer.cs">
+      <DependentUpon>ElectricBuy5.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuitarPolisher.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuitarPolisher.Designer.cs">
+      <DependentUpon>GuitarPolisher.cs</DependentUpon>
+    </Compile>
+    <Compile Include="GuitarPolisherBuy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="GuitarPolisherBuy.Designer.cs">
+      <DependentUpon>GuitarPolisherBuy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Home.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Home.Designer.cs">
+      <DependentUpon>Home.cs</DependentUpon>
+    </Compile>
+    <Compile Include="HomeLocked.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HomeLocked.Designer.cs">
+      <DependentUpon>HomeLocked.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LockingTuner.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LockingTuner.Designer.cs">
+      <DependentUpon>LockingTuner.cs</DependentUpon>
+    </Compile>
+    <Compile Include="LockingTunerBuy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="LockingTunerBuy.Designer.cs">
+      <DependentUpon>LockingTunerBuy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Recipt.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Recipt.Designer.cs">
+      <DependentUpon>Recipt.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Registration.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Registration.Designer.cs">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SoftCase.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SoftCase.Designer.cs">
+      <DependentUpon>SoftCase.cs</DependentUpon>
+    </Compile>
+    <Compile Include="SoftCaseBuy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="SoftCaseBuy.Designer.cs">
+      <DependentUpon>SoftCaseBuy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Strings.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Strings.Designer.cs">
+      <DependentUpon>Strings.cs</DependentUpon>
+    </Compile>
+    <Compile Include="StringsBuy.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="StringsBuy.Designer.cs">
+      <DependentUpon>StringsBuy.cs</DependentUpon>
+    </Compile>
+    <Compile Include="UserDetailsDataSet.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserDetailsDataSet.xsd</DependentUpon>
+    </Compile>
+    <Compile Include="UserDetailsDataSet1.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>UserDetailsDataSet1.xsd</DependentUpon>
+    </Compile>
+    <EmbeddedResource Include="Acoustic1.resx">
+      <DependentUpon>Acoustic1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Acoustic2.resx">
+      <DependentUpon>Acoustic2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Acoustic3.resx">
+      <DependentUpon>Acoustic3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Acoustic4.resx">
+      <DependentUpon>Acoustic4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Acoustic5.resx">
+      <DependentUpon>Acoustic5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AcousticBuy1.resx">
+      <DependentUpon>AcousticBuy1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AcousticBuy2.resx">
+      <DependentUpon>AcousticBuy2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AcousticBuy3.resx">
+      <DependentUpon>AcousticBuy3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AcousticBuy4.resx">
+      <DependentUpon>AcousticBuy4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AcousticBuy5.resx">
+      <DependentUpon>AcousticBuy5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Capo.resx">
+      <DependentUpon>Capo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="CapoBuy.resx">
+      <DependentUpon>CapoBuy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Contact.resx">
+      <DependentUpon>Contact.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="DataGridView.resx">
+      <DependentUpon>DataGridView.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Electric.resx">
+      <DependentUpon>Electric.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Electric2.resx">
+      <DependentUpon>Electric2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Electric3.resx">
+      <DependentUpon>Electric3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Electric4.resx">
+      <DependentUpon>Electric4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Electric5.resx">
+      <DependentUpon>Electric5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectricBuy.resx">
+      <DependentUpon>ElectricBuy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectricBuy2.resx">
+      <DependentUpon>ElectricBuy2.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectricBuy3.resx">
+      <DependentUpon>ElectricBuy3.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectricBuy4.resx">
+      <DependentUpon>ElectricBuy4.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="ElectricBuy5.resx">
+      <DependentUpon>ElectricBuy5.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuitarPolisher.resx">
+      <DependentUpon>GuitarPolisher.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="GuitarPolisherBuy.resx">
+      <DependentUpon>GuitarPolisherBuy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Home.resx">
+      <DependentUpon>Home.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HomeLocked.resx">
+      <DependentUpon>HomeLocked.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LockingTuner.resx">
+      <DependentUpon>LockingTuner.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="LockingTunerBuy.resx">
+      <DependentUpon>LockingTunerBuy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <EmbeddedResource Include="Recipt.resx">
+      <DependentUpon>Recipt.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Registration.resx">
+      <DependentUpon>Registration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SoftCase.resx">
+      <DependentUpon>SoftCase.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="SoftCaseBuy.resx">
+      <DependentUpon>SoftCaseBuy.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Strings.resx">
+      <DependentUpon>Strings.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="StringsBuy.resx">
+      <DependentUpon>StringsBuy.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <None Include="UserDetailsDataSet.xsc">
+      <DependentUpon>UserDetailsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UserDetailsDataSet.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UserDetailsDataSet.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UserDetailsDataSet.xss">
+      <DependentUpon>UserDetailsDataSet.xsd</DependentUpon>
+    </None>
+    <None Include="UserDetailsDataSet1.xsc">
+      <DependentUpon>UserDetailsDataSet1.xsd</DependentUpon>
+    </None>
+    <None Include="UserDetailsDataSet1.xsd">
+      <Generator>MSDataSetGenerator</Generator>
+      <LastGenOutput>UserDetailsDataSet1.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </None>
+    <None Include="UserDetailsDataSet1.xss">
+      <DependentUpon>UserDetailsDataSet1.xsd</DependentUpon>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\download.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\Home Icon.png" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>
